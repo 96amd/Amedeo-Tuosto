@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amedeo Tuosto – Portfolio</title>
+<meta name="description" content="Portfolio d’Amedeo Tuosto : photo, vidéo, TikTok et stop motion. Recherche un apprentissage de médiamaticien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F0F0EC;--ink:#111;--muted:#555;--lime:#A6FF00;--tile:#E1E1DA}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.55 "Inter Tight",Helvetica,Arial,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.wrap{padding:0 clamp(1rem,3vw,2.5rem)}
+
+/* En-tête et menu */
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;position:relative;z-index:30}
+.logo{font-weight:800;font-size:1.6rem;text-decoration:none;letter-spacing:-.03em}
+.logo i{color:var(--lime);font-style:normal}
+#mb{background:none;border:0;color:inherit;font:600 .85rem "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:.9rem;cursor:pointer}
+#mb b{width:34px;height:8px;border-block:2px solid currentColor}
+#ov{position:fixed;inset:0;background:var(--lime);z-index:20;display:none;flex-direction:column;justify-content:center;padding:0 clamp(1rem,3vw,2.5rem)}
+#ov.open{display:flex}
+#ov a{font-weight:800;font-size:clamp(2.6rem,10vw,6rem);letter-spacing:-.04em;line-height:1.05;text-decoration:none;text-transform:uppercase}
+#ov a:hover{text-decoration:underline}
+.menu-open{overflow:hidden}
+.menu-open .top{color:#111}
+
+/* Accueil */
+.hero{min-height:calc(100svh - 80px);display:flex;flex-direction:column;justify-content:space-between;padding-bottom:1.5rem;position:relative}
+.kicker{animation:fade 1.2s .1s both;display:flex;align-items:center;gap:1.2rem;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;margin-top:clamp(1.5rem,6vh,4rem)}
+.kicker::before{content:"";width:46px;height:1px;background:var(--ink)}
+h1{margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.065em;line-height:.8;font-size:clamp(3.6rem,16.5vw,15rem)}
+h1>span{display:block}
+h1>span+span{margin-left:.2em}
+.l{display:inline-block;animation:up .8s cubic-bezier(.2,.8,.2,1) calc(.25s + var(--i)*70ms) both}
+@keyframes up{from{opacity:0;transform:translateY(.45em) rotate(4deg)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{transform:scale(0)}}
+.dot{position:absolute;right:clamp(1rem,8vw,9rem);top:42%;width:clamp(90px,12.5vw,180px);aspect-ratio:1;border-radius:50%;background:var(--lime);color:#111;display:grid;place-items:center;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;animation:pop .8s 1.3s cubic-bezier(.3,1.7,.5,1) both}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.foot p{margin:0;max-width:26rem;color:var(--muted)}
+.cta{font-weight:600;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:.3rem}
+
+/* Sections */
+section{padding:clamp(3rem,8vw,6rem) 0;border-top:1px solid var(--ink)}
+h2{margin:0 0 .5rem;font-weight:800;text-transform:uppercase;letter-spacing:-.05em;line-height:.9;font-size:clamp(2.6rem,9vw,7rem)}
+.sub{color:var(--muted);margin:0 0 1.5rem;max-width:34rem}
+.cats{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 3rem;padding:0;list-style:none}
+.cats a{display:block;border:2px solid var(--ink);border-radius:999px;padding:.4rem 1.1rem;text-decoration:none;font-weight:600}
+.cats a:hover{background:var(--lime);border-color:var(--lime)}
+.cat{margin-bottom:clamp(3rem,7vw,5rem)}
+.cat h3{margin:0 0 1rem;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;letter-spacing:-.04em}
+.cat small{font-size:.9rem;font-weight:400;color:var(--muted);letter-spacing:0;margin-left:.6rem}
+.row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))}
+.tile{background:var(--tile);border-radius:6px;display:grid;place-items:center;color:var(--muted);font-size:.9rem;overflow:hidden}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;display:block}
+.photo .tile{aspect-ratio:4/5}
+.video .tile{aspect-ratio:16/9}
+.video .row{grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr))}
+.tiktok .tile{aspect-ratio:9/16}
+.tiktok .row{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.stop .tile{aspect-ratio:1}
+
+/* À propos et contact */
+.about{display:grid;gap:2rem}
+@media(min-width:820px){.about{grid-template-columns:1fr 1fr;gap:4rem}}
+.about p{margin:0 0 1rem;max-width:34rem;font-size:1.15rem}
+.tag{display:inline-block;background:var(--lime);color:#111;font-weight:600;padding:.2rem .7rem;border-radius:4px}
+.big{font-weight:800;text-transform:uppercase;letter-spacing:-.04em;line-height:1;font-size:clamp(1.5rem,5vw,3.4rem);text-decoration:none;word-break:break-word}
+.big:hover{background:var(--lime)}
+.links{margin-top:1.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem}
+footer{padding:1.5rem 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--ink)}
+@media(max-width:700px){.dot{top:auto;bottom:18%;right:1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.l,.dot,.kicker{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="logo" href="#accueil" aria-label="Accueil">AT<i>.</i></a>
+  <button id="mb" aria-expanded="false" aria-controls="ov">Menu <b></b></button>
+</header>
+<nav id="ov" aria-label="Menu principal">
+  <a href="#travaux">Projets</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
+</nav>
+
+<main>
+  <div class="wrap hero" id="accueil">
+    <div class="kicker">Portfolio / 2026</div>
+    <h1 aria-label="Amedeo Tuosto"><span>Amedeo</span><span>Tuosto</span></h1>
+    <a class="dot" href="#travaux">Scroll</a>
+    <div class="foot">
+      <p>Je crée des contenus en photo, vidéo et stop motion. Je cherche un apprentissage de médiamaticien.</p>
+      <a class="cta" href="#travaux">Voir mes projets ↓</a>
+    </div>
+  </div>
+
+  <section id="travaux"><div class="wrap">
+    <h2>Projets</h2>
+    <p class="sub">Quatre façons de raconter une histoire. Choisissez une catégorie.</p>
+    <ul class="cats">
+      <li><a href="#photo">Photo</a></li><li><a href="#video">Vidéo</a></li><li><a href="#tiktok">TikTok</a></li><li><a href="#stop">Stop motion</a></li>
+    </ul>
+
+    <!-- Pour ajouter un projet : remplacez le texte d’une case par
+         <img src="photos/ma-photo.jpg" alt="Description" loading="lazy">
+         ou <video src="videos/ma-video.mp4" controls preload="none"></video> -->
+    <div class="cat photo" id="photo"><h3>Photo<small>portraits, paysages, détails</small></h3>
+      <div class="row"><div class="tile"> <img src="moon copie 2.png" </div><div class="tile">Photo 2</div><div class="tile">Photo 3</div></div></div>
+    <div class="cat video" id="video"><h3>Vidéo<small>clips, reportages, montage</small></h3>
+      <div class="row"><div class="tile">Vidéo 1</div><div class="tile">Vidéo 2</div></div></div>
+    <div class="cat tiktok" id="tiktok"><h3>TikTok<small>formats courts, verticaux</small></h3>
+      <div class="row"><div class="tile">TikTok 1</div><div class="tile">TikTok 2</div><div class="tile">TikTok 3</div><div class="tile">TikTok 4</div></div></div>
+    <div class="cat stop" id="stop"><h3>Stop motion<small>image par image</small></h3>
+      <div class="row"><div class="tile">Stop motion 1</div><div class="tile">Stop motion 2</div><div class="tile">Stop motion 3</div></div></div>
+  </div></section>
+
+  <section id="apropos"><div class="wrap about">
+    <div><h2>À propos</h2><span class="tag">Recherche un apprentissage de médiamaticien</span></div>
+    <div>
+      <p>Je m’appelle Amedeo, j’ai 21 ans et je suis passionné de foot et de cinéma. Deux mondes qui se ressemblent : une ambiance, un rythme et des émotions qu’on a envie de partager.</p>
+      <p>C’est ce qui m’a donné envie de prendre une caméra : filmer, photographier, monter, puis publier mes créations sur TikTok sous le nom prod.a10. Aujourd’hui, je veux faire de cette passion mon métier.</p>
+      <p>Je cherche un apprentissage de médiamaticien pour relier l’image, le son et l’informatique : sites web, réseaux sociaux, montage, communication numérique. Je suis curieux, soigneux et prêt à m’investir.</p>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <p class="sub">Une place d’apprentissage à proposer ? Écrivez-moi.</p>
+    <a class="big" href="mailto:amedeotuosto@icloud.com">amedeotuosto@icloud.com</a>
+    <div class="links"><a href="https://www.tiktok.com/@prod.a10" target="_blank" rel="noopener">TikTok @prod.a10</a></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Amedeo Tuosto</div></footer>
+
+<script>
+const mb = document.getElementById('mb'), ov = document.getElementById('ov');
+const toggle = open => {
+  ov.classList.toggle('open', open);
+  document.body.classList.toggle('menu-open', open);
+  mb.setAttribute('aria-expanded', open);
+};
+mb.onclick = () => toggle(!ov.classList.contains('open'));
+ov.onclick = e => { if (e.target.tagName === 'A') toggle(false); };
+document.onkeydown = e => { if (e.key === 'Escape') toggle(false); };
+
+// Animation du titre : chaque lettre apparaît l’une après l’autre
+let i = 0;
+document.querySelectorAll('h1>span').forEach(line => {
+  line.innerHTML = [...line.textContent].map(c => `<span class="l" aria-hidden="true" style="--i:${i++}">${c}</span>`).join('');
+});
+</script>
+</body>
+</html>
